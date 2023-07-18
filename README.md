@@ -75,4 +75,5 @@ As soon as the script finishes, a new Windows file explorer will open automatica
 ---
 
 **Q**: Do I have to conduct some form of cleanup after the script was run?
+
 **A**: You may want to restart the computer from which the script was run to clear memory (RAM). Other from that, just ensure that the exported data is treated as very sensitive and stored securely.
