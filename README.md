@@ -64,16 +64,16 @@ As soon as the script finishes, a new Windows file explorer will open automatica
 
 **Q**: The computer on which the PowerShell script shall run does not have an Internet connection. How can I run the script?
 
-**A**: You can download the GitHub repo locally onto disk. However, AV/EDR must be disabled as the scripts will likely be flagged as malicious. Then proceed by executing the `Local-Invoke-DCSync.ps1` script. It references all necessary third
+**A**: You can download the GitHub repo locally onto disk. However, AV/EDR must be disabled as the scripts will likely be flagged as malicious. Then proceed by executing the `/run-locally/Invoke-DCSync-Locally.ps1` script.
 
 ---
 
 **Q**: The computer on which the PowerShell script shall run uses a company proxy that blocks the GitHub domain. How can I run the script?
 
-**A**: You can host the scripts on a different domain under your control, which is not blacklisted. Alternatively, see the above Q&A to run the script locally. Note that you likely have to download or copy PowerView, Invoke-Mimikatz and ADRecon manually onto disk.
+**A**: You can host the script on a different domain under your control, which is not blacklisted. Alternatively, you can download/copy the GitHub repo locally onto disk. However, AV/EDR must be disabled as the scripts will likely be flagged as malicious. Then proceed by executing the `/run-locally/Invoke-DCSync-Locally.ps1` script.
 
 ---
 
 **Q**: Do I have to conduct some form of cleanup after the script was run?
 
-**A**: You may want to restart the computer from which the script was run to clear memory (RAM). Other from that, just ensure that the exported data is treated as very sensitive and stored securely.
+**A**: Please re-active any AV/EDR solutions, which were previously deactivated. Furthermore, you may want to restart the computer on which the script was run. This ensures that all scripts, which were loaded into memory, are removed completely. Finally, ensure that the exported data is treated as very sensitive and stored securely. Only authorized personell should be able to access the DCSync exports.
