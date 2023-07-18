@@ -19,8 +19,8 @@ Invoke-DCSync is a PowerShell wrapper script around popular tools such as PowerV
 It automates the task of dumping NT password hashes from an Active Directory environment. The script was designed for Active Directory password audits, where extracted password hashes undergo a cracking process in order to outline password strength and policy weaknesses. 
 
 The script will parse the output of Mimikatz's DCSync and create two separate folders with output files:
-- A directory `CUSTOMER` with detailed information about an Active Directory user and its NT password hash. The import file in this directory will later be used to establish a reference between an AD user and a cracked password hash.
-- A directory `PTF` with information about NT password hashes only. This folder may be shared with an external security vendor that conducts offline password cracking. No user information are stored in this directory. Only plain NT hashes.
+- A directory `CUSTOMER` with detailed information about Active Directory users and their NT password hashes. The import file in this directory will later be used to establish a reference between an AD user and a cracked password hash.
+- A directory `PTF` with information about NT password hashes only. This folder may be shared with an external security vendor that conducts offline password cracking. User information from ADRecon are not linked to an extracted NT password hash.
 
 ## 🎓 Usage
 
