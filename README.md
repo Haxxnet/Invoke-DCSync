@@ -26,7 +26,7 @@ The script will parse the output of Mimikatz's DCSync and create two separate fo
 
 To utilize this PowerShell script, it's recommended to disable Antivirus/EDR. Alternatively, if no advanced EDR is in use, it may be sufficient to bypass AMSI for the current PowerShell process.
 
-The script must be run in the context of an Active Directory domain user with DCSync rights. Usually, a Domain Administrator (DA) user account is privileged and recommended for easy of use. You may obtain a PowerShell terminal in the context of such domain user via the following PowerShell command:
+The script must be run in the context of an Active Directory domain user with DCSync rights. Usually, a Domain Administrator (DA) user account is privileged enough and recommended for ease of use. You may obtain a PowerShell terminal in the context of such domain user via the following PowerShell command:
 
 ````powershell
 runas.exe /netonly /noprofile /user:example.com\dcsyncuser "powershell.exe -ep bypass"
@@ -71,3 +71,8 @@ As soon as the script finishes, a new Windows file explorer will open automatica
 **Q**: The computer on which the PowerShell script shall run uses a company proxy that blocks the GitHub domain. How can I run the script?
 
 **A**: You can host the scripts on a different domain under your control, which is not blacklisted. Alternatively, see the above Q&A to run the script locally. Note that you likely have to download or copy PowerView, Invoke-Mimikatz and ADRecon manually onto disk.
+
+---
+
+**Q**: Do I have to conduct some form of cleanup after the script was run?
+**A**: You may want to restart the computer from which the script was run to clear memory (RAM). Other from that, just ensure that the exported data is treated as very sensitive and stored securely.
